@@ -8,7 +8,10 @@ document
     const account_balance = getTextFieldValueById("account_balace");
     const NewBalance = Noakhali_balance + removeMoney;
     const account_new_balance = account_balance - removeMoney;
+    console.log(account_balance, account_new_balance)
 
+
+    
     document.getElementById("Noakhali_balance").innerText = NewBalance;
     document.getElementById("account_balace").innerText = account_new_balance;
     document.getElementById("my_modal_1").showModal()
@@ -17,14 +20,16 @@ document
     // add to history
     const p = document.createElement('p')
     p.innerHTML = `
-        <div class="border-2 p-5 bg-gray-600 text-white  rounded-sm  mt-4 space-y-4">
+        <div class="border p-5 bg-slate-300 text-black border-stone-500 rounded-sm  mt-4 space-y-4">
             <h1>${removeMoney.toFixed(2)} TK ${title}</h1>
             <p>${new Date().toString()}</p>
         </div>
     `
-    console.log(p)
-
     document.getElementById('history_container').appendChild(p)
+    
+    
+
+    
   });
 
 
@@ -48,7 +53,7 @@ document
     // add to history
     const p = document.createElement('p')
     p.innerHTML = `
-        <div class="border-2 p-5 bg-gray-600 text-white  rounded-sm  mt-4 space-y-4">
+        <div class="border p-5 bg-slate-300 text-black border-stone-500  rounded-sm  mt-4 space-y-4">
             <h1>${removeMoney_2.toFixed(2)} TK ${title_2}</h1>
             <p>${new Date().toString()}</p>
         </div>
@@ -76,7 +81,7 @@ document
     // add to history
     const p = document.createElement('p')
     p.innerHTML = `
-        <div class="border-2 p-5 bg-gray-600 text-white  rounded-sm mt-4 space-y-4">
+        <div class="border p-5 bg-slate-300 text-black border-stone-500  rounded-sm mt-4 space-y-4">
             <h1>${removeMoney_3.toFixed(2)} TK ${title_3}</h1>
             <p>${new Date().toString()}</p>
         </div>
@@ -84,4 +89,30 @@ document
     console.log(p)
 
     document.getElementById('history_container').appendChild(p)
+  });
+
+  
+
+
+
+  // navbar
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Show/hide navbar based on scroll direction
+    
+
+    // Change background to red if scrolled more than 100px, otherwise reset to white
+    if (currentScroll > 100) {
+      navbar.classList.add('bg-slate-600','opacity-80');
+      navbar.classList.remove('bg-slate-600');
+    } else {
+      navbar.classList.add('bg-white');
+      navbar.classList.remove('bg-red-500');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For mobile or negative scrolling
   });
