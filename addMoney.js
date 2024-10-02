@@ -81,6 +81,7 @@ document
     document.getElementById("injured_balance").innerText = newBalance_3;
     document.getElementById("account_balace").innerText = account_new_balance_3;
     document.getElementById("my_modal_3").showModal();
+    document.getElementById("input_money_3").value = "";
     const title_3 = document.getElementById("injurid_title").innerText;
     // add to history
     const p = document.createElement("p");
