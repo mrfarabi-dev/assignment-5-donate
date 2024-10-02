@@ -13,10 +13,12 @@ document
     if (account_balance < removeMoney) {
       return alert("Your Balance MT so You DGM");
     }
-
+    if (removeMoney <= 0 || isNaN(removeMoney)) {
+      return alert("Invalid Donation");
+    }
     document.getElementById("Noakhali_balance").innerText = NewBalance;
     document.getElementById("account_balace").innerText = account_new_balance;
-    document.getElementById("my_modal_1").showModal();
+    // document.getElementById("my_modal_1").showModal();
     document.getElementById("input_money_1").value = "";
     const title = document.getElementById("noakhali_title").innerText;
     // add to history
@@ -28,7 +30,12 @@ document
         </div>
     `;
     document.getElementById("history_container").appendChild(p);
+    document.getElementById("my_modal_1").showModal();
   });
+
+document.getElementById("close_1").addEventListener("click", function () {
+  document.getElementById("my_modal_1").close();
+});
 
 document
   .getElementById("btn_remove_money_2")
@@ -43,6 +50,10 @@ document
 
     if (account_balance < removeMoney_2) {
       return alert("Your Balance MT so You DGM");
+    }
+
+    if (removeMoney_2 <= 0 || isNaN(removeMoney_2)) {
+      return alert("Invalid Donation");
     }
 
     document.getElementById("feni_balance").innerText = newBalance_2;
@@ -63,6 +74,10 @@ document
     document.getElementById("history_container").appendChild(p);
   });
 
+document.getElementById("close_2").addEventListener("click", function () {
+  document.getElementById("my_modal_2").close();
+});
+
 document
   .getElementById("btn_remove_money_3")
   .addEventListener("click", function (event) {
@@ -78,6 +93,9 @@ document
       return alert("Your Balance MT so You DGM");
     }
 
+    if (removeMoney_3 <= 0 || isNaN(removeMoney_3)) {
+      return alert("Invalid Donation");
+    }
     document.getElementById("injured_balance").innerText = newBalance_3;
     document.getElementById("account_balace").innerText = account_new_balance_3;
     document.getElementById("my_modal_3").showModal();
@@ -95,6 +113,10 @@ document
 
     document.getElementById("history_container").appendChild(p);
   });
+
+document.getElementById("close_3").addEventListener("click", function () {
+  document.getElementById("my_modal_2").close();
+});
 
 // navbar
 let lastScrollTop = 0;
